@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class NestedLoop14 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -14,13 +15,18 @@ public class NestedLoop14 {
             System.out.println();
         }
 
-        for (int i = 0; i < temps.length; i++) {
-            System.out.println("City: " + i);
-            for (int j = 0; j < temps[0].length; j++) {
-                System.out.println(temps[i][j] + " ");
+        System.out.println("=== Temperature Data Output ===");
+        int cityIndex = 0;
+
+        for (double[] cityTemps : temps) {
+            System.out.println("City: " + cityIndex);
+            for (double temp : cityTemps) {
+                System.out.println(temp + " ");
             }
             System.out.println();
+            cityIndex++;
         }
+
         scanner.close();
     }
 }
