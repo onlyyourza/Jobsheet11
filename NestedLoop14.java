@@ -8,23 +8,28 @@ public class NestedLoop14 {
 
         for (int i = 0; i < temps.length; i++) {
             System.out.println("City: " + i);
-            for (int j = 0; j < temps[0].length; j++) {
+            for (int j = 0; j < temps[i].length; j++) {
                 System.out.print("Day " + (j + 1) + ": ");
                 temps[i][j] = scanner.nextDouble();
             }
             System.out.println();
         }
 
-        System.out.println("=== Temperature Data Output ===");
-        int cityIndex = 0;
+        System.out.println("=== Temperature Data and Averages ===");
 
-        for (double[] cityTemps : temps) {
-            System.out.println("City: " + cityIndex);
-            for (double temp : cityTemps) {
-                System.out.println(temp + " ");
+        for (int i = 0; i < temps.length; i++) {
+            double sum = 0;
+
+            System.out.println("City: " + i);
+
+            for (int j = 0; j < temps[i].length; j++) {
+                System.out.println("Day " + (j + 1) + ": " + temps[i][j]);
+                sum += temps[i][j];
             }
+
+            double average = sum / temps[i].length;
+            System.out.println("Average Temperature for City " + i + ": " + average);
             System.out.println();
-            cityIndex++;
         }
 
         scanner.close();
